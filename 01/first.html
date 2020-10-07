@@ -1,3 +1,4 @@
+<!--HTML 연습용!-->
 <!DOCTYPE html>
 
 <html lang="ko">
@@ -5,7 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>어제 저녁</title>
+    <title>재왕이 저녁</title>
 </head>
 
 <body>
@@ -64,24 +65,39 @@
 
         </pre>
         
-        ＜가격＞<br>
-        <ol type="i">
-            <li>함바그 & 카레</li>
-                <ul>
-                    <li>함바그또카레 : 9,000원 <small>(부가세 별도)</small></il>
-                    <li>치즈함바그또카레 : 10,000원 <small>(부가세 별도)</small></il>
-                    <li>더블함바그또카레 : 13,000원 <small>(부가세 별도</small></li>
-                </ul>
-                <pre></pre>
-            <li>함바그 & 데미소스</li>
-            <ul>
-                <li>데미함바그 : 9,000원 <small>(부가세 별도)</small></il>
-                <li>데미치즈함바그 : 10,000원 <small>(부가세 별도)</small></il>
-                <li>더블데미함바그 : 13,000원 <small>(부가세 별도</small></li>
-            </ul>
-            
-        </ol>
-    
+        <table>
+            <figcaption>
+                <p>＜가격표＞</p>
+            </figcaption>
+            <thead>
+                <tr>
+                    <td style="background-color:rgb(255, 152, 134);"><b>글자</b></td>
+                    <td style="background-color: rgb(255, 152, 134);"><b>사진</b></td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><ol type="i">
+                            <li>함바그 & 카레</li>
+                                <ul>
+                                    <li>함바그또카레 : 9,000원 <small>(부가세 포함)</small></il>
+                                    <li>치즈함바그또카레 : 10,000원 <small>(부가세 포함)</small></il>
+                                    <li>더블함바그또카레 : 13,000원 <small>(부가세 포함</small></li>
+                                </ul>
+                                <pre></pre>
+                            <li>함바그 & 데미소스</li>
+                                <ul>
+                                    <li>데미함바그 : 9,000원 <small>(부가세 포함)</small></il>
+                                    <li>데미치즈함바그 : 10,000원 <small>(부가세 포함)</small></il>
+                                    <li>더블데미함바그 : 13,000원 <small>(부가세 포함</small></li>
+                                </ul>
+                        </ol></td>
+                    <td><img src="images/test1.jpg " width="560" height="390"></td>
+                </tr>
+            </tbody>
+        </table>
+
+        
     </p>
     <hr>
 
@@ -89,19 +105,71 @@
 
     </pre>
     
-    <img src="images/ham.jpg">
+    <img src="images/ham.jpg" width="336", height="250">
     
     <pre>
 
     </pre>
+    <hr>
     <p>
         장소 : 대전 유성구 전민로6번길 81 <q cite="https://map.naver.com/v5/entry/place/20312949?c=14183143.7959706,4353103.0927836,13,0,0,0,dh">＜네이버지도＞</q>
     </p>
-    <hr>
 
     <blockquote>
-        [출처] (대전 전민동) 136함바그또카레|작성자 Ravely
+        [출처] (대전 전민동) 136함바그또카레|작성자 Ravely<br>
     </blockquote> 
+    <hr>
+
+    
+    <table>
+        <caption>
+            <strong> 작성자 정보</strong>
+            <p>HTML학습하는 서재왕</p>
+        </caption>
+        <colgroup>
+            <col style="background-color: cornflowerblue;">
+            <col style="background-color: cadetblue;">
+            <col style="background-color: cornflowerblue ;">
+        </colgroup>
+
+        <thead>
+            <tr>
+                <th>이름</th>
+                <td>서재왕</td>
+    
+                <th>연락처</th>
+                <td style="background-color: cadetblue;">010-2449-4790</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th>주소</th>
+                <td colspan="3">대전광역시</td>
+            </tr>    
+        </tbody>
+        <tfoot>
+            <tr>
+                <th rowspan="2">자기소개</th>
+                <td colspan="3">현장실습생 서재왕</td>
+            </tr>
+        </tfoot>
+    </table>
+    <hr>
+    <table>
+        <figcaption>
+            <p><b><abbr title="통합 개발 환경">IDE</abbr></b>와 <b>HTML</b>을 사용</p>
+        </figcaption>
+        <tr>
+            <th>IDE</th>
+            <td>Visual Studio Code</td>
+        </tr>
+        <tr>
+            <th>language</th>
+            <td>HTML</td>
+        </tr>
+        
+    </table>
+    <hr>
     
 </body>
 
