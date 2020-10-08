@@ -21,18 +21,43 @@
     
 </style>
 <style>
-    .id-pw{
+    #id-pw{
         list-style: none;
-        line-height: 40px;
-        padding: 1px;
+        line-height: 30px;
+        padding-left: 10px;
+    }
+</style>
+<style>
+    #menu-ul{
+        list-style: none;
+        padding-left: 10px;
+
+    }
+</style>
+<style>
+    #time_ul{
+        list-style: none;
+        padding-left: 10px;
+        line-height: 30px;
     }
 </style>
 
-    <input type="search">
-    <input type="submit" value="검색">
-
+<body>
+    <form>
+        <input id="top" type="button" value="새 탭 열기" onclick="window.open()"><br>
+    </form>
+    
     <a href="#bottom" ><img src="images/bottom.jpg" alt="맨아래로"></a>
-    <h1 id="top"><i>(대전 전민동)</i> 136함바그또카레</h1>
+    <hr>
+    <fieldset>
+        <legend>로그인</legend>
+        <label><strong>아이디 </strong><input type="text"></label>
+        <label><strong>비밀번호 </strong></label><input type="text">
+        <input type="image" src="images/login.jpg" alt="login">
+    </fieldset>
+    <hr>
+
+    <h1><i>(대전 전민동)</i> 136함바그또카레 </h1>
     <hr>
     <h2>
         드디어!!! 소개한다 :)
@@ -41,10 +66,15 @@
         136 함바그또카레
     </h3>
     <p>
-        <b>Open</b> <u><mark>11:30 - 21:00</mark></u><br>
-        <b>Last Order</b> <u><mark>20:30<br></mark></u>
-        <span style="color: crimson;"><strong>일요일</strong><b>휴무</b></span><br>
-        <span style="color: crimson;"><strong>주차장</strong> <b>없음</b></span><br>
+        <ul id="time_ul">
+            <li><b>Open <input style="background-color: bisque;" type="time" value="11:30"> ~ <input style="background-color: bisque;" type="time" value="21:00"><br></li>
+            <li><b>Last Order </b><input style="background-color: bisque;" type="time" value="20:30"><br></li>                
+            <li>
+                <span style="color: crimson;"><strong>일요일</strong><b>휴무</b></span><br>
+                <span style="color: crimson;"><strong>주차장</strong> <b>없음</b></span><br>
+            </li>
+        </ul>
+        
         <hr>
     
     
@@ -141,7 +171,7 @@
     </pre>
     <hr>
     
-    <a id="bottom" href="https://map.naver.com/v5/entry/place/20312949?c=14182179.9728171,4355727.6298095,16,0,0,0,dh" target="_blank">
+    <a href="https://map.naver.com/v5/entry/place/20312949?c=14182179.9728171,4355727.6298095,16,0,0,0,dh" target="_blank">
         <img src="images/NAVER_map.jpg" width="45" height="45" alt="네이버지도"><br>
     </a>
     장소 : 대전 유성구 전민로6번길 81 <br>
@@ -182,7 +212,7 @@
         <tfoot>
             <tr>
                 <th rowspan="2">자기소개</th>
-                <td colspan="3">서재왕<small> (현장실습생)</small></td>
+                <td colspan="3">서재왕<small> (현장실습생) </small><input type="datetime-local" value="1999-12-21T18:00"><input type="color" value="#444444"></td>
             </tr>
         </tfoot>
     </table>
@@ -202,10 +232,11 @@
         
     </table>
     <hr>
+
     <form action="search.php" method="POST" autocomplete="off">
         <fieldset>
             <legend>개인 정보</legend>
-            <ul class="id-pw">
+            <ul id="id-pw">
                 <li>
                     <label for="user-id">아이디<small>(6자 이하)</small></label>
                     <input type="text", title="id" id="user-id" size="9" value="서재왕서재왕" maxlength="6">
@@ -224,24 +255,65 @@
                 </li>
             </ul>
         </fieldset>
+        <hr>
+        <table>
+            <tr>
+                <td><label><input type="checkbox" name="han&curry", value="ham-curry" checked>함바그또카레</label></td>
+                <td><label><input type="checkbox" name="ham&demi", value="demi-ham">데미함바그</label></td>
+            </tr>
+            <tr>
+                <td><label><input type="checkbox" name="han&curry", value="ch-ham-curry">치즈함바그또카레</label></td>
+                <td><label><input type="checkbox" name="ham&demi", value="demi-cheese-ham">데미치즈함바그</label></td>
+            </tr>
+            <tr>
+                <td><label><input type="checkbox" name="han&curry", value="double-ham-curry">더블함바그또카레</label>
+                <td><label><input type="checkbox" name="han&curry", value="double-demi-ham">더블데미함바그</label>
+            </tr>            
+            </table>
+        <fieldset>
+            <legend>메뉴 확인</legend>
+                <label><input type="radio" name="taste" value="mild">순한맛</label>
+                <label><input type="radio" name="taste" value="spicy">매운맛</label>
+
+                <ul id="menu-ul">
+                    <li>
+                        <label class="ano" for="a number of">메뉴 개수<small>(최대6개)</small></label>
+                        <input type="number" id="a number of" value="1" min="0" max="6" step="1">
+                    </li>
+                    <li>
+                        <label for="range">매운강도<small>(5단계)</small></label>
+                        <input type="range" value="1" min="1" max="5">
+                        <input type="submit" value="확인">
+                    </li>
+                </ul>
+                    
+        </fieldset>
+        
+        <fieldset>
+            <legend>배송지 입력</legend>
+            <ul>
+                <li>
+                    <label>우편번호 <input type="text"></label>
+                    <input type="image" src="images/tick.png" alt="우편번호">
+                </li>
+                <li><label>주소 <input type="text"></label>
+                    <input type="submit" value="검색">
+                    <input type="reset" value="재입력">
+                </li>
+        </fieldset>
+        <label></label>
     </form>
-    <hr>
-    <table>
-        <tr>
-            <td><label><input type="checkbox" name="han&curry", value="ham-curry">함바그또카레</label></td>
-            <td><label><input type="checkbox" name="ham&demi", value="demi-ham">데미함바그</label></td>
-        </tr>
-        <tr>
-            <td><label><input type="checkbox" name="han&curry", value="ch-ham-curry">치즈함바그또카레</label></td>
-            <td><label><input type="checkbox" name="ham&demi", value="demi-cheese-ham">데미치즈함바그</label></td>
-        </tr>
-        <tr>
-            <td><label><input type="checkbox" name="han&curry", value="double-ham-curry">더블함바그또카레</label>
-            <td><label><input type="checkbox" name="han&curry", value="double-demi-ham">더블데미함바그</label>
-        </tr>            
-        </table>
+    <fieldset>
+        <legend>문의사항</legend>
+        <label>에러사진 첨부하기 : <input type="file"></label>
+    </fieldset>
+    <label></label>
+        
     <hr>
     <a href="#top"><img src="images/top.png" alt="맨위로"></a>
+    <form id="bottom">
+        <input type="button" value="창 닫기" onclick="window.close()">
+    </form>
 
     
 </body>
