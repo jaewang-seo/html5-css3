@@ -41,7 +41,26 @@
         line-height: 30px;
     }
 </style>
-
+<style>
+    .subm{  /* 버튼 스타일 */
+        display:block;  /* 블록 레벨 요소 */
+        background-color:#fff;  /* 배경색 */
+        border:1px solid #dedede;  /* 테두리 */
+        cursor:pointer;  /* 마우스 포인터 */
+        padding:5px 10px 6px 7px;	/* 패딩 */
+    }
+    .subm img{  /* 버튼 내 왼쪽 이미지 */
+        border:0;  /* 테두리 없음*/
+        padding:0;  /* 패딩 없음 */
+        width:16px;  /* 가로 크기 */
+        height:16px;  /* 세로 크기 */	
+    }
+    .subm:hover{
+        background-color:#e6efc2;  /* 배경색 */
+        border:1px solid #c6d880;  /* 테두리 */
+        color:#529215; /* 글자색 */
+    }
+</style>
 <body>
     <form>
         <input id="top" type="button" value="새 탭 열기" onclick="window.open()"><br>
@@ -51,11 +70,13 @@
     <hr>
     <fieldset>
         <legend>로그인</legend>
-        <label><strong>아이디 </strong><input type="text"></label>
+        <label class="reg" for="uname"><strong>아이디 </strong><input type="text" id="uname" autofocus required></label>
         <label><strong>비밀번호 </strong></label><input type="text">
-        <input type="image" src="images/login.jpg" alt="login">
+            <button type="submit" class="subm">
+                <img src="images/tick.png" alt="">로그인
+            </button>
     </fieldset>
-    <hr>
+    <hr>    
 
     <h1><i>(대전 전민동)</i> 136함바그또카레 </h1>
     <hr>
@@ -67,8 +88,8 @@
     </h3>
     <p>
         <ul id="time_ul">
-            <li><b>Open <input style="background-color: bisque;" type="time" value="11:30"> ~ <input style="background-color: bisque;" type="time" value="21:00"><br></li>
-            <li><b>Last Order </b><input style="background-color: bisque;" type="time" value="20:30"><br></li>                
+            <li><b>Open <input style="background-color: bisque;" type="time" value="11:30" readonly> ~ <input style="background-color: bisque;" type="time" value="21:00" readonly><br></li>
+            <li><b>Last Order </b><input style="background-color: bisque;" type="time" value="20:30" readonly><br></li>                
             <li>
                 <span style="color: crimson;"><strong>일요일</strong><b>휴무</b></span><br>
                 <span style="color: crimson;"><strong>주차장</strong> <b>없음</b></span><br>
@@ -84,7 +105,7 @@
             <dl>
                 <dt><li><mark style="color:brown">함바그 & 카레</mark>
                     <dd>
-                        <u>볶은 양파를 갈아 넣어 정성으로 끓여낸 카래를 함박스테이크와 함께 즐겨보세요</u>
+                        <u>볶은 양파를 갈아 넣어 정성으로 끓여낸 카레를 함박스테이크와 함께 즐겨보세요</u>
                     </dd>
                 </dt>
                 <pre></pre>
@@ -233,25 +254,67 @@
     </table>
     <hr>
 
-    <form action="search.php" method="POST" autocomplete="off">
+    <form oninput="result.value=parseInt(num1.value) + parseInt(num.value)" method="POST" autocomplete="off">
         <fieldset>
             <legend>개인 정보</legend>
             <ul id="id-pw">
                 <li>
-                    <label for="user-id">아이디<small>(6자 이하)</small></label>
-                    <input type="text", title="id" id="user-id" size="9" value="서재왕서재왕" maxlength="6">
+                    <label for="user-id">아이디<small>(최소 4자 이상, 최대6자 이하)</small></label>
+                    <input type="text", title="id" id="user-id" size="9" value="abcdef" minlength="4" maxlength="6">
                     <input style="background-color: rgb(184, 184, 184);" id="user-id" type="submit" value="중복확인">
                     <input type="hidden" name="아이디" value="서버로 넘길 값">
                 </li>
                 <li>
-                    <label for="user-pw">비밀번호<small>(8자 이하)</small></label>
-                    <input type="password" title="password" id="user-pw" size="9" value="서재왕서재왕서재" maxlength="8">
+                    <label for="user-pw">비밀번호<small>(최소 6자 이상, 최대 8자 이하)</small></label>
+                    <input type="password" title="password" id="user-pw" size="9" value="12345678" minlength="6" maxlength="8">
                     <input style="background-color: rgb(184, 184, 184);" id="user-id" type="submit" value="중복확인">
                 </li>
                 <li>
-                    <label for="user-pw-ck">비밀번호 확인(8자 이하)</label>
-                    <input type="password" title="check password" id="user-pw-ck" size="9" value="서재왕서재왕서재" maxlength="8">
+                    <label for="user-pw-ck">비밀번호 확인<small>(최소 6자 이상, 최대 8자 이하)</small></label>
+                    <input type="password" title="check password" id="user-pw-ck" size="9" value="12345678" minlength="6" maxlength="8">
                     <input style="background-color: rgb(184, 184, 184) ;" id="user-pw-ck" type="submit" value="비밀번호 확인">
+                </li>
+                <li>
+                    <label class="reg" for="class">학과<small>(단일전공)</small></label>
+                    <select id="class">
+                        <optgroup label="공과대학">
+                            <option value="archi" selected>건축공학과</option>
+                            <option value="mechanic">기계공학과</option>
+                            <option value="indust">산업공학과</option>
+                            <option value="elec">전기전자공학과</option>
+                        <option value="computer">컴퓨터공학과</option>
+                        </optgroup>
+                        <optgroup label="인문대학">
+                            <option value="history">사학과</option>
+                            <option value="lang">어문학부</option>
+                            <option value="philp">철학과</option>
+                        </optgroup>
+                    </select>
+                </li>
+                <li>
+                    <label class="reg" for="class">학과<Small>(복수전공)</Small></label>
+                    <select size="5" id="class" multiple>
+                        <option value="archi" selected>건축공학과</option>
+                        <option value="mechanic">기계공학과</option>
+                        <option value="indust">산업공학과</option>
+                        <option value="elec">전기전자공학과</option>
+                        <option value="computer">컴퓨터공학과</option>
+                    </select>
+                </li>
+                <li>
+                    <label>관심분야</label>
+                    <input type="text" placeholder="문법" id="interest" list="choices">
+                    <datalist id="choices">
+                        <option value="grammar" label="문법"></option>
+                        <option value="voca" label="어휘"></option>
+                        <option value="speaking" label="회화"></option>
+                        <option value="listening" label="리스닝"></option>
+                        <option value="news" label="뉴스청취"></option>
+                    </datalist>
+                </li>
+                <li>
+                    메모<br>
+                    <textarea name="meno" id="memo" cols="50" rows="4">간단한 메모</textarea>
                 </li>
             </ul>
         </fieldset>
@@ -277,13 +340,21 @@
 
                 <ul id="menu-ul">
                     <li>
-                        <label class="ano" for="a number of">메뉴 개수<small>(최대6개)</small></label>
-                        <input type="number" id="a number of" value="1" min="0" max="6" step="1">
+                        <label class="ano" for="a number of" autofocus required>메뉴 개수<small>(최대6개)</small></label>
+                        <input type="number" id="a number of" value="1" min="1" max="6" step="1">
                     </li>
                     <li>
                         <label for="range">매운강도<small>(5단계)</small></label>
                         <input type="range" value="1" min="1" max="5">
                         <input type="submit" value="확인">
+                    </li>
+                    <li>
+                        <label>단체 메뉴개수 <input type="number" value="10" min="10" max="100", step="5"></label>
+                    </li>
+                    <li>
+                        <input type="number" name="num1" value="0">
+                        +<input type="number" name="num2" value="0">
+                        =<output name="result" for="num"></output>
                     </li>
                 </ul>
                     
@@ -293,18 +364,26 @@
             <legend>배송지 입력</legend>
             <ul>
                 <li>
-                    <label>우편번호 <input type="text"></label>
+                    <label>우편번호 <input type="text" autofocus required></label>
                     <input type="image" src="images/tick.png" alt="우편번호">
                 </li>
-                <li><label>주소 <input type="text"></label>
+                <li><label>주소 <input type="text" autofocus required></label>
                     <input type="submit" value="검색">
                     <input type="reset" value="재입력">
+                </li>
+                <li>
+                    <label>휴대전화 <input type="text"autofocus required placeholder=" - 없이 입력하시오"></label>
+                    <input type="submit"  value="인증번호 전송">
+                    
                 </li>
         </fieldset>
         <label></label>
     </form>
     <fieldset>
         <legend>문의사항</legend>
+        <label>예약하기 : <input type="time" value="11:30"></label>
+        <input type="submit" value="접수하기"><br>
+        <pre></pre>
         <label>에러사진 첨부하기 : <input type="file"></label>
     </fieldset>
     <label></label>
